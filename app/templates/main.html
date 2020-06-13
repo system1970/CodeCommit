@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified JavaScript -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#icon').click(function(){
+            $('ul').toggleClass('show')
+        })
+    })   
+    function show(){
+        var elems = document.getElementsByClassName('form_popup');
+        for (var i=0;i<elems.length;i+=1){
+                elems[i].style.display = 'block';
+            }
+    }
+    function hide(){
+        var elems = document.getElementsByClassName('form_popup');
+        for (var i=0;i<elems.length;i+=1){
+                elems[i].style.display = 'none';
+        }
+    }
+    </script>
+    <title>CodeCommit</title>
+</head>
+<body>
+    <nav>
+        <label class="logo">CodeCommit</label>
+            <ul>
+                <li>  <a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+                </li>
+                <li><a href="#"><i class="fa fa-address-card fa-fw" aria-hidden="true"></i>&nbsp;About</a></li>
+                <li><a href="#"><i class="fa fa-question-circle fa-fw" aria-hidden="true"></i>&nbsp;Help</a></li>
+                <li><a href="#"><i class="fa fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Feedback</a></li>
+                <li><a href="#"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Contact</a></li>
+            </ul>
+            <label id="icon">
+                <i class="fas fa-bars"></i>
+            </label>
+    </nav>
+    <!-- {% if us %}
+			<div class="alert alert-danger">
+				<h2>{{us}}</h2>
+			</div>
+	{% endif %} -->
+    <div class="github"><i class="fab fa-github fa-10x" id="gitlogo"></i></div>
+    <button onclick="show()">Subscribe</button>
+    <div id="back">
+        <!-- Just some text for test reasons. -->
+    </div>
+    <div id="formup" class="form_popup">
+        <form action="/infoGet" method="post" onsubmit="hide()">
+            <label for="git">Github Username :</label>
+            <input type="text" id="git" name="GITuser"  placeholder="github Username" required autofocus><br>
+            <label for="cf">Codeforces Handle  :</label>
+            <input type="text" id="cf" name="CFuser"  placeholder="codeforces Username" required><br>
+            <label for="gt">Github Personal Token :</label>
+            <input type="text" id="gt" name="GIToken"  placeholder="github personal token" required><br>
+            <button id="submitinator" type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <style>
+        .form_popup{
+            position: absolute;
+            text-align: center;
+            display: none;
+            top:25%;
+            left: 35%;
+            background-color: rgba(36, 35, 35);
+            z-index: 11;
+            height: 350px;
+            width: 400px;
+            color: white;
+        }
+        #submitinator{
+            border-radius: 30%;   
+            font-weight: bold;
+            font-size: 15px;
+            color: black;
+        }
+        form{
+            top: 12.5px;
+            position: relative;
+            font-size: 20px;
+            text-align: center;
+        }
+        input{
+            width: 300px;
+            display: block;
+            margin : 0 auto;
+            color: black;
+        }
+        input[type="text"]::placeholder{
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        body{
+            font-family: 'Montserrat';
+        }
+        nav{
+            height: 80px;
+            width: 100%;
+            background: #181818;
+        }
+        label.logo{
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+            padding: 0 100px;
+            line-height: 80px;
+        }
+        nav ul{
+            float: right;
+            margin-right: 40px;
+        }
+        nav li{
+            display: inline-block;
+            margin: 0;
+            line-height: 80px;
+        }
+        nav a{
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            padding: 7px 10px;
+            border-radius: 3px;
+        }
+        a.active,a:hover{
+            border: 1px solid white;
+            transition: .5s;
+        }
+        nav #icon{
+            color: white;
+            font-size: 30px;
+            line-height: 80px;
+            float: right;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+        @media (max-width: 1048px){
+            label.logo{
+                font-size: 32px;
+                padding-left: 60px;
+            }
+            nav ul{
+                margin-right: 20px;
+            }
+            nav a{
+                font-size: 17px;
+            }
+        }
+        @media (max-width: 809px){
+            nav #icon{
+                display: block;
+            }
+            nav ul{
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background: #2f3640;
+                top: 80px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+            nav li{
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+            nav a{
+                font-size: 20px;
+            }
+            a.active,a:hover{
+                border: none;
+                color: #3498db;
+            }
+            nav ul.show{
+                left: 0;
+            }
+        }
+        #back{
+            background-color: black;
+            height: calc(100vh - 80px);
+        }
+        .github{
+            top: calc((100vh - 70px)/2);
+            left: calc(100vh - 50px);
+            z-index: 10;
+            position: absolute;
+            animation: onload 2.5s linear;
+            animation-play-state: running;
+        }
+        .github:hover .github{
+            left: calc(100vh - 350px);
+            transition: all 3s ease-in;
+        }
+        .fa-github{
+            color: white;
+        }
+    </style>
+</body>
+</html>
