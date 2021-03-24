@@ -106,7 +106,7 @@ def App(cfUser,gitUser,gitToken):
             UTC = datetime.datetime.now(timezone('UTC'))
             # Convert to local time zone
             local = UTC.astimezone(get_localzone())
-                                                            # : 1)convert now() to current timezone (100% completeT)
+                                                            # : 1)convert now() to current timezone (100% complete)
                                                             #       2)change it to be user input 
             if (datetime.datetime.now().day==value.day):    
                 json_format.append(json_format_before["result"][i])
@@ -168,7 +168,7 @@ def Iterate():
     for user in inventory.each():
         App(user.val()['codeForces'],user.val()['github'],user.val()['gitToken'])
     print("============>Pushed to GitHub<============")
-    return "IT WORKEDs"
+    return "Success"
 
 # if __name__ == "__main__":
 #         app.run()
