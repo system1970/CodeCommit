@@ -170,6 +170,12 @@ def Iterate():
     print("============>Pushed to GitHub<============")
     return "Success"
 
+def clampRotation(angle, lowerBound, upperBound):
+    angle += 360 if angle < 0 else 0
+    if angle>180:
+        return max(angle, 360 + lowerBound)
+    return min(angle, upperBound)
+
 # if __name__ == "__main__":
 #         app.run()
 
