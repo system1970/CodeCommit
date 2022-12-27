@@ -16,14 +16,14 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from bs4 import BeautifulSoup as bs4
 
 config = {
-"apiKey": "AIzaSyDDiXvLTuO_ECz0WOUol-9ErxeKOkD3A3E",
-"authDomain": "codeforces-ee268.firebaseapp.com",
-"databaseURL": "https://codeforces-ee268.firebaseio.com/",
-"projectId": "codeforces-ee268",
-"storageBucket": "codeforces-ee268.appspot.com",
-"messagingSenderId": "1032774108703",
-"appId": "1:1032774108703:web:5d3658fa94d3270022f72a",
-"measurementId": "G-EF718751VF"
+"apiKey": "",
+"authDomain": "",
+"databaseURL": "",
+"projectId": "",
+"storageBucket": "",
+"messagingSenderId": "",
+"appId": "",
+"measurementId": ""
 }
 
 firebase = pyrebase.initialize_app(config)
